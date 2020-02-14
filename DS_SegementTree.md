@@ -39,4 +39,53 @@ void update(int idx, int value) {
 	}
 }
 
+
+/* OOP Implementation*/
+
+class SegmentTree {
+private:
+	int n;
+	vector<int>Tree;
+public:
+	SegmentTree(vector<int> arr) {
+		n = arr.size();
+		Tree.resize(2 * n);
+
+		for (int i = 0; i < n; ++i)
+			Tree[i + n] = arr[i];
+
+		for (int i = n - 1; i >= 1; --i) {
+			Tree[i] = min(Tree[2 * i], Tree[2 * i + 1]);
+		}
+	}
+
+	void Update(int idx, int value) {
+		idx += n;
+		Tree[idx] = value;
+
+		while (idx > 1) {
+			idx /= 2;
+			Tree[idx] = min(Tree[2 * idx], Tree[2 * idx + 1]);
+		}
+	}
+
+	int Query(int l, int r) {
+		l += n, r += n;
+		int Mn = INT_MAX;
+
+		while (l < r) {
+			if (l % 2 != 0) 
+				Mn = min(Mn, Tree[l++]);
+
+			if(r % 2 != 0)
+				Mn = min(Mn, Tree[--r]);
+
+			l /= 2, r /= 2;
+		}
+
+		return Mn;
+	}
+};
+
+
 ```
