@@ -1,8 +1,7 @@
+# Binary Search Algorithm
+
+Recursion implementation
 ```cpp
-
-#include<iostream>
-
-// Recursion implementation
 int BinarySearch(int arr[], int item, int from, int to) {
 	int mid = (from + to) / 2;
 	if (from > to)
@@ -18,8 +17,10 @@ int BinarySearch(int arr[], int item, int from, int to) {
 		BinarySearch(arr, item, mid + 1, to);
 	
 }
+```
 
-// loop implementation
+loop implementation
+```cpp
 int binarySearch(int arr[], int item, int low, int hi) {
 
 	int mid;
@@ -37,7 +38,10 @@ int binarySearch(int arr[], int item, int low, int hi) {
 
 	return -1;
 }
+```
 
+Driver Function
+```cpp
 int main() {
 	int arr[] = { 0 ,2 ,4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28 };
 
