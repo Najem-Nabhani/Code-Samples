@@ -1,9 +1,13 @@
+# Depth First Search
+
+Example Graph
 ```cpp
-
-//Recursive Algorithm:
-
 vector<vector<int>> graph = { {}, {2,5}, {1,5,3}, {2,4}, {3,5,6}, {1,2,4}, {4} };
 vector<bool> isVisited(7);
+```
+Recursive Algorithm
+```cpp
+
 void DFS(int curNode) {
 	isVisited[curNode] = true;
 	cout << curNode << " ";
@@ -13,12 +17,10 @@ void DFS(int curNode) {
 		DFS(thisChild);
 	}
 }
+```
 
-
-//Stack Implementation:
-
-vector<vector<int>> graph = { {}, {2,5}, {1,5,3}, {2,4}, {3,5,6}, {1,2,4}, {4} };
-vector<bool> isVisited(7);
+Stack Implementation
+```cpp
 stack<int> stk;
 void DFS(int startingNode) {
 
@@ -43,10 +45,11 @@ void DFS(int startingNode) {
 	}
 
 }
+```
 
 
-
-// Driver Method
+Driver Method
+```cpp
 int main() {
 	DFS(1);
 	return 0;
